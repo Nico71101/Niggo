@@ -1,5 +1,11 @@
-build:
-	g++ main.cpp -o executable
+OBJS  = main.o ClassA.o
 
-start:
+executable: $(OBJS)
+	c++ $^ -o $@
+
+start: 
 	./executable
+
+
+%.o: %.cpp
+	c++ -c $< -o $@
